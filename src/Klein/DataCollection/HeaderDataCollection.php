@@ -116,7 +116,7 @@ class HeaderDataCollection extends DataCollection
      *
      * @return int
      */
-    public function getNormalization()
+    public function getNormalization(): int
     {
         return $this->normalization;
     }
@@ -127,7 +127,7 @@ class HeaderDataCollection extends DataCollection
      * @param int $normalization
      * @return HeaderDataCollection
      */
-    public function setNormalization($normalization)
+    public function setNormalization(int $normalization): static
     {
         $this->normalization = (int) $normalization;
 
@@ -144,7 +144,7 @@ class HeaderDataCollection extends DataCollection
      * @return mixed
      *@see DataCollection::get()
      */
-    public function get(string $key, mixed $default_val = null)
+    public function get(string $key, mixed $default_val = null): mixed
     {
         $key = $this->normalizeKey($key);
 
@@ -161,7 +161,7 @@ class HeaderDataCollection extends DataCollection
      * @return HeaderDataCollection
      *@see DataCollection::set()
      */
-    public function set(string $key, mixed $value)
+    public function set(string $key, mixed $value): static
     {
         $key = $this->normalizeKey($key);
 
@@ -177,7 +177,7 @@ class HeaderDataCollection extends DataCollection
      * @return boolean
      *@see DataCollection::exists()
      */
-    public function exists(string $key)
+    public function exists(string $key): bool
     {
         $key = $this->normalizeKey($key);
 
@@ -193,7 +193,7 @@ class HeaderDataCollection extends DataCollection
      * @return void
      *@see DataCollection::remove()
      */
-    public function remove(string $key)
+    public function remove(string $key): void
     {
         $key = $this->normalizeKey($key);
 
@@ -206,7 +206,7 @@ class HeaderDataCollection extends DataCollection
      * @param string $key The ("field") key of the header
      * @return string
      */
-    protected function normalizeKey($key)
+    protected function normalizeKey(string $key): string
     {
         if ($this->normalization & static::NORMALIZE_TRIM) {
             $key = trim($key);
@@ -236,7 +236,7 @@ class HeaderDataCollection extends DataCollection
      * @param string $key The ("field") key of the header
      * @return string
      */
-    public static function normalizeKeyDelimiters($key)
+    public static function normalizeKeyDelimiters(string $key): string
     {
         return str_replace(array(' ', '_'), '-', $key);
     }
@@ -251,7 +251,7 @@ class HeaderDataCollection extends DataCollection
      * @param string $key The ("field") key of the header
      * @return string
      */
-    public static function canonicalizeKey($key)
+    public static function canonicalizeKey(string $key): string
     {
         $words = explode('-', strtolower($key));
 
@@ -268,14 +268,14 @@ class HeaderDataCollection extends DataCollection
      * This is useful since PHP automatically capitalizes and underscore
      * separates the words of headers
      *
-     * @todo Possibly remove in future, here for backwards compatibility
-     * @link http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
      * @param string $name              The name ("field") of the header
      * @param boolean $make_lowercase   Whether or not to lowercase the name
-     * @deprecated Use the normalization options and the other normalization methods instead
      * @return string
+     *@link http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
+     * @deprecated Use the normalization options and the other normalization methods instead
+     * @todo Possibly remove in future, here for backwards compatibility
      */
-    public static function normalizeName($name, $make_lowercase = true)
+    public static function normalizeName(string $name, bool $make_lowercase = true): string
     {
         // Warn user of deprecation
         trigger_error(

@@ -57,7 +57,7 @@ class ResponseCookieDataCollection extends DataCollection
      * @return ResponseCookieDataCollection
      *@see DataCollection::set()
      */
-    public function set(string $key, mixed $value)
+    public function set(string $key, mixed $value): static
     {
         if (!$value instanceof ResponseCookie) {
             $value = new ResponseCookie($key, $value);

@@ -60,7 +60,7 @@ class ServerDataCollection extends DataCollection
      * @param string $prefix    The prefix to test
      * @return boolean
      */
-    public static function hasPrefix($string, $prefix)
+    public static function hasPrefix(string $string, string $prefix): bool
     {
         if (strpos($string, $prefix) === 0) {
             return true;
@@ -77,7 +77,7 @@ class ServerDataCollection extends DataCollection
      *
      * @return array
      */
-    public function getHeaders()
+    public function getHeaders(): array
     {
         // Define a headers array
         $headers = array();

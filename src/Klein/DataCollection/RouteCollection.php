@@ -56,7 +56,7 @@ class RouteCollection extends DataCollection
      * @return RouteCollection
      *@see DataCollection::set()
      */
-    public function set(string $key, mixed $value)
+    public function set(string $key, mixed $value): static
     {
         if (!$value instanceof Route) {
             $value = new Route($value);
@@ -73,7 +73,7 @@ class RouteCollection extends DataCollection
      * @param Route $route
      * @return RouteCollection
      */
-    public function addRoute(Route $route)
+    public function addRoute(Route $route): RouteCollection|static
     {
         /**
          * Auto-generate a name from the object's hash
@@ -92,10 +92,10 @@ class RouteCollection extends DataCollection
      * will take a Route instance, string callable
      * or any other Route class compatible callback
      *
-     * @param Route|callable $route
+     * @param callable|Route $route
      * @return RouteCollection
      */
-    public function add($route)
+    public function add(callable|Route $route): RouteCollection|static
     {
         if (!$route instanceof Route) {
             $route = new Route($route);
@@ -116,7 +116,7 @@ class RouteCollection extends DataCollection
      *
      * @return RouteCollection
      */
-    public function prepareNamed()
+    public function prepareNamed(): static
     {
         // Create a new collection so we can keep our order
         $prepared = new static();
