@@ -52,12 +52,12 @@ class ResponseCookieDataCollection extends DataCollection
      * suggested "$key" as the cookie's "domain" and passing in an
      * instance of a ResponseCookie as the "$value"
      *
-     * @see DataCollection::set()
      * @param string $key                   The name of the cookie to set
-     * @param ResponseCookie|string $value  The value of the cookie to set
+     * @param mixed $value  The value of the cookie to set
      * @return ResponseCookieDataCollection
+     *@see DataCollection::set()
      */
-    public function set($key, $value)
+    public function set(string $key, mixed $value)
     {
         if (!$value instanceof ResponseCookie) {
             $value = new ResponseCookie($key, $value);

@@ -51,12 +51,12 @@ class RouteCollection extends DataCollection
      * by passing the name of the route as the "$key" and an
      * instance of a Route as the "$value"
      *
-     * @see DataCollection::set()
      * @param string $key                   The name of the route to set
-     * @param Route|callable $value         The value of the route to set
+     * @param mixed $value         The value of the route to set
      * @return RouteCollection
+     *@see DataCollection::set()
      */
-    public function set($key, $value)
+    public function set(string $key, mixed $value)
     {
         if (!$value instanceof Route) {
             $value = new Route($value);

@@ -139,12 +139,12 @@ class HeaderDataCollection extends DataCollection
      *
      * {@inheritdoc}
      *
-     * @see DataCollection::get()
      * @param string $key           The key of the header to return
-     * @param mixed  $default_val   The default value of the header if it contains no value
+     * @param mixed|null $default_val   The default value of the header if it contains no value
      * @return mixed
+     *@see DataCollection::get()
      */
-    public function get($key, $default_val = null)
+    public function get(string $key, mixed $default_val = null)
     {
         $key = $this->normalizeKey($key);
 
@@ -156,12 +156,12 @@ class HeaderDataCollection extends DataCollection
      *
      * {@inheritdoc}
      *
-     * @see DataCollection::set()
      * @param string $key   The key of the header to set
-     * @param mixed  $value The value of the header to set
+     * @param mixed $value The value of the header to set
      * @return HeaderDataCollection
+     *@see DataCollection::set()
      */
-    public function set($key, $value)
+    public function set(string $key, mixed $value)
     {
         $key = $this->normalizeKey($key);
 
@@ -173,11 +173,11 @@ class HeaderDataCollection extends DataCollection
      *
      * {@inheritdoc}
      *
-     * @see DataCollection::exists()
      * @param string $key   The key of the header
      * @return boolean
+     *@see DataCollection::exists()
      */
-    public function exists($key)
+    public function exists(string $key)
     {
         $key = $this->normalizeKey($key);
 
@@ -189,11 +189,11 @@ class HeaderDataCollection extends DataCollection
      *
      * {@inheritdoc}
      *
-     * @see DataCollection::remove()
      * @param string $key   The key of the header
      * @return void
+     *@see DataCollection::remove()
      */
-    public function remove($key)
+    public function remove(string $key)
     {
         $key = $this->normalizeKey($key);
 
