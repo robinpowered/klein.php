@@ -80,7 +80,7 @@ class RouteCollection extends DataCollection
          * This makes it so that we can autogenerate names
          * that ensure duplicate route instances are overridden
          */
-        $name = (string) spl_object_id($route);
+        $name = 'route_' . spl_object_id($route);
 
         return $this->set($name, $route);
     }
