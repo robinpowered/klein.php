@@ -199,7 +199,7 @@ class Route
      */
     public function setCountMatch($count_match)
     {
-        $this->count_match = (boolean) $count_match;
+        $this->count_match = (bool) $count_match;
 
         return $this;
     }

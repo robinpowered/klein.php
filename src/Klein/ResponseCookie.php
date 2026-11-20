@@ -265,7 +265,7 @@ class ResponseCookie
      */
     public function setSecure($secure)
     {
-        $this->secure = (boolean) $secure;
+        $this->secure = (bool) $secure;
 
         return $this;
     }
@@ -288,7 +288,7 @@ class ResponseCookie
      */
     public function setHttpOnly($http_only)
     {
-        $this->http_only = (boolean) $http_only;
+        $this->http_only = (bool) $http_only;
 
         return $this;
     }

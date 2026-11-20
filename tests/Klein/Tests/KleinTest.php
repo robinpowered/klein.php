@@ -109,7 +109,7 @@ class KleinTest extends AbstractKleinTest
     {
         $route = $this->klein_app->respond($this->getTestCallable());
 
-        $object_id = spl_object_hash($route);
+        $object_id = 'route_' . spl_object_id($route);
 
         $this->assertNotNull($route);
         $this->assertTrue($route instanceof Route);

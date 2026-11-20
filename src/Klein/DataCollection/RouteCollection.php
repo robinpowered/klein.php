@@ -76,11 +76,11 @@ class RouteCollection extends DataCollection
     public function addRoute(Route $route): RouteCollection|static
     {
         /**
-         * Auto-generate a name from the object's hash
+         * Auto-generate a name from the object's id
          * This makes it so that we can autogenerate names
          * that ensure duplicate route instances are overridden
          */
-        $name = spl_object_hash($route);
+        $name = 'route_' . spl_object_id($route);
 
         return $this->set($name, $route);
     }
